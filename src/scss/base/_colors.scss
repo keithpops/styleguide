@@ -5,6 +5,11 @@ $white: #ffffff;
 .bg-white { background-color: $white; }
 .bc-white { border-color: $white; }
 
+$white-opacity-95: rgba(255,255,255,0.95);
+.white-opacity-95 { color: $white-opacity-95; }
+.bg-white-opacity-95 { background-color: $white-opacity-95; }
+.bc-white-opacity-95 { border-color: $white-opacity-95; }
+
 $blue: #186bb7;
 .blue { color: $blue; }
 .bg-blue { background-color: $blue; }
