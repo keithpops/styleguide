@@ -13,8 +13,6 @@ const {
 export default createClass({
   displayName: 'EditLabel',
 
-  mixins: [OutsideClick],
-
   propTypes: {
     label: Type.string.isRequired,
     placeholder: Type.string,
