@@ -22,7 +22,7 @@ class OutsideClick extends Component {
 
   _handleDocumentClick(e) {
     const target = e.target;
-    const component = this.getDOMNode();
+    const component = findDOMNode(this);
 
     if ( component === target || component.contains(target) ) {
       return true;
