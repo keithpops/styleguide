@@ -1,6 +1,3 @@
-// This mixin requires a handleOutsideClick method to be defined within the component using it.
-// Also, any other click handlers in the component should use event.stopPropagation to prevent the event from bubbling to the window
-
 import React from 'react';
 
 const {
