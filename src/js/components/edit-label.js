@@ -130,37 +130,39 @@ export default createClass({
       };
 
       return (
-        <div className="flex flex-center flex-wrap" ref="wrapper">
-          {this.state.hasErrors ? this._showError() : void 0}
-          <textarea
-            className={this._getTextClasses()}
-            defaultValue={this.props.label}
-            onKeyDown={this.state.saveDisabled ? void 0 : this._handleKey}
-            onKeyUp={this._checkContent}
-            placeholder={this.props.placeholder}
-            ref="labelInput"
-            style={textStyle}
-          ></textarea>
-          <Icon 
-            name="check" 
-            extraClasses={this._getSaveClasses()}
-            onClick={this.state.saveDisabled ? void 0 : this._handleSave}
-           />
-          <Popup ref="pop">
-            <Icon 
-              name="delete" 
-              extraClasses={["blue", "px2", "small", "m0"]} 
-            />
-            <div className="white">
-              <h4>Are you sure?</h4>
-              {this.props.children}
-              <div className="right-align">
-                <button className="button-link button-sm button-secondary mr2" onClick={this._handleClose} >Cancel</button>
-                <button className="button-danger button-sm" onClick={this._handleDelete} >Delete</button>
+        <OutsideClick onClick={this.handleOutsideClick}>
+          <div className="flex flex-center flex-wrap" ref="wrapper">
+            {this.state.hasErrors ? this._showError() : void 0}
+            <textarea
+              className={this._getTextClasses()}
+              defaultValue={this.props.label}
+              onKeyDown={this.state.saveDisabled ? void 0 : this._handleKey}
+              onKeyUp={this._checkContent}
+              placeholder={this.props.placeholder}
+              ref="labelInput"
+              style={textStyle}
+            ></textarea>
+            <Icon
+              name="check"
+              extraClasses={this._getSaveClasses()}
+              onClick={this.state.saveDisabled ? void 0 : this._handleSave}
+             />
+            <Popup ref="pop">
+              <Icon
+                name="delete"
+                extraClasses={["blue", "px2", "small", "m0"]}
+              />
+              <div className="white">
+                <h4>Are you sure?</h4>
+                {this.props.children}
+                <div className="right-align">
+                  <button className="button-link button-sm button-secondary mr2" onClick={this._handleClose} >Cancel</button>
+                  <button className="button-danger button-sm" onClick={this._handleDelete} >Delete</button>
+                </div>
               </div>
-            </div>
-          </Popup>
-        </div>
+            </Popup>
+          </div>
+        </OutsideClick>
       );
     } else {
       return (
