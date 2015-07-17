@@ -27,8 +27,8 @@ class OutsideClick extends Component {
     if ( component === target || component.contains(target) ) {
       return true;
     } else {
-      if (this.handleOutsideClick) {
-        this.handleOutsideClick(e);
+      if (this.props.onClick) {
+        this.props.onClick(e);
       } else {
         throw new Error("handleOutsideClick is not a defined method in this component.");
       }
