@@ -45,7 +45,7 @@ exports['default'] = createClass({
     var posXLen = baseWidth / 2 + 5;
 
     var popStyle = {
-      width: '' + this.props.width + 'px'
+      width: this.props.width + 'px'
     };
     popStyle[posX] = '-' + posXLen + 'px';
     popStyle[posY] = '140%';

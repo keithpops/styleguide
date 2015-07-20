@@ -35,8 +35,6 @@ var Type = _react2['default'].PropTypes;
 exports['default'] = createClass({
   displayName: 'EditLabel',
 
-  mixins: [_mixinsOutsideClick2['default']],
-
   propTypes: {
     label: Type.string.isRequired,
     placeholder: Type.string,
@@ -153,51 +151,55 @@ exports['default'] = createClass({
       };
 
       return _react2['default'].createElement(
-        'div',
-        { className: 'flex flex-center flex-wrap', ref: 'wrapper' },
-        this.state.hasErrors ? this._showError() : void 0,
-        _react2['default'].createElement('textarea', {
-          className: this._getTextClasses(),
-          defaultValue: this.props.label,
-          onKeyDown: this.state.saveDisabled ? void 0 : this._handleKey,
-          onKeyUp: this._checkContent,
-          placeholder: this.props.placeholder,
-          ref: 'labelInput',
-          style: textStyle
-        }),
-        _react2['default'].createElement(_icon2['default'], {
-          name: 'check',
-          extraClasses: this._getSaveClasses(),
-          onClick: this.state.saveDisabled ? void 0 : this._handleSave
-        }),
+        _mixinsOutsideClick2['default'],
+        { onClick: this.handleOutsideClick },
         _react2['default'].createElement(
-          _popup2['default'],
-          { ref: 'pop' },
+          'div',
+          { className: 'flex flex-center flex-wrap', ref: 'wrapper' },
+          this.state.hasErrors ? this._showError() : void 0,
+          _react2['default'].createElement('textarea', {
+            className: this._getTextClasses(),
+            defaultValue: this.props.label,
+            onKeyDown: this.state.saveDisabled ? void 0 : this._handleKey,
+            onKeyUp: this._checkContent,
+            placeholder: this.props.placeholder,
+            ref: 'labelInput',
+            style: textStyle
+          }),
           _react2['default'].createElement(_icon2['default'], {
-            name: 'delete',
-            extraClasses: ['blue', 'px2', 'small', 'm0']
+            name: 'check',
+            extraClasses: this._getSaveClasses(),
+            onClick: this.state.saveDisabled ? void 0 : this._handleSave
           }),
           _react2['default'].createElement(
-            'div',
-            { className: 'white' },
-            _react2['default'].createElement(
-              'h4',
-              null,
-              'Are you sure?'
-            ),
-            this.props.children,
+            _popup2['default'],
+            { ref: 'pop' },
+            _react2['default'].createElement(_icon2['default'], {
+              name: 'delete',
+              extraClasses: ['blue', 'px2', 'small', 'm0']
+            }),
             _react2['default'].createElement(
               'div',
-              { className: 'right-align' },
+              { className: 'white' },
               _react2['default'].createElement(
-                'button',
-                { className: 'button-link button-sm button-secondary mr2', onClick: this._handleClose },
-                'Cancel'
+                'h4',
+                null,
+                'Are you sure?'
               ),
+              this.props.children,
               _react2['default'].createElement(
-                'button',
-                { className: 'button-danger button-sm', onClick: this._handleDelete },
-                'Delete'
+                'div',
+                { className: 'right-align' },
+                _react2['default'].createElement(
+                  'button',
+                  { className: 'button-link button-sm button-secondary mr2', onClick: this._handleClose },
+                  'Cancel'
+                ),
+                _react2['default'].createElement(
+                  'button',
+                  { className: 'button-danger button-sm', onClick: this._handleDelete },
+                  'Delete'
+                )
               )
             )
           )

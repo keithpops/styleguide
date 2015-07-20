@@ -1,3 +1,5 @@
+// import the button components
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -5,8 +7,6 @@ Object.defineProperty(exports, '__esModule', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-// import the button components
 
 var _button = require('./button');
 

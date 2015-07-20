@@ -30,7 +30,8 @@ exports['default'] = _react2['default'].createClass({
     return D.div({
       className: 'grid-block ' + this.props.colClass
     }, D.p({
-      className: 'col-class' }, '.' + this.colContent()));
+      className: 'col-class'
+    }, '.' + this.colContent()));
   }
 });
 module.exports = exports['default'];

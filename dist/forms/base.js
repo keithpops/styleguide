@@ -1,3 +1,5 @@
+// import ready form components
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -5,8 +7,6 @@ Object.defineProperty(exports, '__esModule', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-// import ready form components
 
 var _fieldsCheckbox = require('./fields/checkbox');
 
