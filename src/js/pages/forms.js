@@ -1,5 +1,6 @@
 import React from 'react';
 import Styleguide from '../styleguide';
+import Form from '../components/forms/form';
 import Select from 'react-select';
 import DateField from '../components/forms/fields/date';
 import NumberField from '../components/forms/fields/number';
@@ -51,7 +52,12 @@ export default React.createClass({
 
   render() {
     return <Styleguide title="Forms Styles">
+
         <div title="Forms">
+          <Form />
+        </div>
+
+        <div title="Fields">
           <form className="clearfix">
             <hr />
 
