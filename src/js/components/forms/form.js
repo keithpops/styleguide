@@ -13,6 +13,8 @@ const getElementData = getFormData.getNamedFormElementData;
 
 const Form = createClass({
 
+  displayName: "Form",
+
   propTypes: {
     onChange: PropTypes.func,
     onSubmit: PropTypes.func,
