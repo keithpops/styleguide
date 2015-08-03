@@ -1,18 +1,18 @@
 import React from 'react';
 
 const {
-  Component,
+  createClass,
 } = React;
 
 
-class Form extends Component {
+const Form = createClass({
+
 
   render() {
 
     return <div>Test!</div>;
   }
-
-}
+});
 
 
 export default Form;
