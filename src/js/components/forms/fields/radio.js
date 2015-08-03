@@ -10,9 +10,9 @@ export default React.createClass({
     extraClasses: Type.arrayOf(Type.string),
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
+    name: Type.string.isRequired,
     readOnly: Type.bool,
-    checked: Type.bool,
-    name: Type.string
+    checked: Type.bool
   },
 
   getDefaultProps() {
@@ -20,7 +20,8 @@ export default React.createClass({
       disabled: false,
       fieldColor: 'light',
       readonly: false,
-      checked: false
+      checked: false,
+      name: ''
     }
   },
 
