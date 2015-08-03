@@ -86,6 +86,7 @@ linters:
       line-height: []
       margin: ['rem', 'px']
       transition: ['s']
+      animation-duration: ['s']
 
   QualifyingElement:
     enabled: true
@@ -94,6 +95,8 @@ linters:
     enabled: true
 
   SelectorFormat:
+    exclude:
+      - './src/scss/elements/_select.scss'
     enabled: true
 
   SingleLinePerProperty:
