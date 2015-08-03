@@ -1,5 +1,7 @@
 import React from 'react';
 import getFormData from 'get-form-data';
+import assign from 'react/lib/Object.assign';
+
 
 const {
   createClass,
@@ -39,9 +41,15 @@ const Form = createClass({
   },
 
   render() {
+    var props = assign({}, this.props, {
+      onChange: this.props.onChange && this._onChange,
+      onSubmit: this.props.onSubmit && this._onSubmit
+    });
 
-    return <div>Test!</div>;
+    return <form {...props}>{this.props.children}</form>;
   }
+
+
 });
 
 
