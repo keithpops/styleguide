@@ -70,8 +70,8 @@ export default React.createClass({
               <TextField name="sample-textfield" label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             </div></div></div></div>
             <div><div><div><div>
-              <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
-              <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
+              <TextArea name="sample-textarea" label="Textarea" fieldColor='light'  extraClasses={['py2']} />
+              <TextArea name="sample-textarea-expandable" label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
             </div></div></div></div>
           </Form>
         </div>
