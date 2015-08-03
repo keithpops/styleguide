@@ -6,6 +6,8 @@ const {
   PropTypes,
 } = React;
 
+const getElementData = getFormData.getNamedFormElementData;
+
 
 const Form = createClass({
 
