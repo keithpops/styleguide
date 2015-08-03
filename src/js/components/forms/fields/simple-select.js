@@ -11,6 +11,7 @@ export default React.createClass({
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     multiple: Type.bool,
+    name: Type.string.isRequired,
     options: Type.object,
     promptText: Type.string,
     readOnly: Type.bool
@@ -22,6 +23,7 @@ export default React.createClass({
       fieldColor: 'light',
       inactive: false,
       multiple: false,
+      name: '',
       readOnly: false
     }
   },
@@ -68,6 +70,7 @@ export default React.createClass({
           <select
             className={this.fieldClasses()}
             multiple={this.props.multiple}
+            name={this.props.name}
             disabled={this.props.disabled || this.props.inactive || this.props.readOnly}
           >
             {this.options().map(function(option){

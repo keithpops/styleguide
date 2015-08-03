@@ -10,6 +10,7 @@ export default React.createClass({
     extraClasses: Type.arrayOf(Type.string),
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
+    name: Type.string.isRequired,
     placeholder: Type.string,
     readOnly: Type.bool,
     expandable: Type.bool
@@ -19,7 +20,8 @@ export default React.createClass({
     return {
       fieldColor: 'light',
       readOnly: false,
-      expandable: false
+      expandable: false,
+      name: ''
     }
   },
 
@@ -60,6 +62,7 @@ export default React.createClass({
         <textarea
           className={this.fieldClasses()}
           disabled={this.props.disabled}
+          name={this.props.name}
           readOnly={this.props.readOnly}
           placeholder={this.props.placeholder}
           onChange={this.props.expandable ? this.expand : null}

@@ -20,7 +20,14 @@ export default createClass({
 
   propTypes: {
     labelTitle: Type.string.isRequired,
-    labelStyles: Type.arrayOf(Type.string).isRequired
+    labelStyles: Type.arrayOf(Type.string).isRequired,
+    name: Type.string.isRequired,
+  },
+
+  getDefaultProps() {
+    return {
+      name: ''
+    }
   },
 
   getFile() {
