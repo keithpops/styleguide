@@ -65,9 +65,9 @@ export default React.createClass({
   render() {
     return <Styleguide title="Forms Styles">
         <div title="Form">
-          <Form endpoint="http://www.cnn.com">
+          <Form onSubmit={this._onSubmit} onChange={this._onChange} endpoint="http://www.cnn.com">
             <div><div><div><div>
-              <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
+              <TextField name="sample-textfield" label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             </div></div></div></div>
             <div><div><div><div>
               <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
