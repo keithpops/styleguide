@@ -11,6 +11,8 @@ import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
 
+import Form from '../components/forms/form';
+
 let D = React.DOM;
 
 var options = [
@@ -51,6 +53,17 @@ export default React.createClass({
 
   render() {
     return <Styleguide title="Forms Styles">
+        <div title="Form">
+          <Form endpoint="http://www.cnn.com">
+            <div><div><div><div>
+              <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
+            </div></div></div></div>
+            <div><div><div><div>
+              <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
+              <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
+            </div></div></div></div>
+          </Form>
+        </div>
         <div title="Forms">
           <form className="clearfix">
             <hr />
