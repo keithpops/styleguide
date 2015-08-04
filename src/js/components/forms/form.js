@@ -49,6 +49,8 @@ const Form = createClass({
     var change = {};
     change[name] = data;
     this.props.onChange(e, name, data, change);
+    this.throttle(name, change);
+
   },
 
   _onSubmit(e) {
