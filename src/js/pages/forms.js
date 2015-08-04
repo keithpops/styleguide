@@ -40,14 +40,13 @@ export default React.createClass({
   },
 
 
-  _onChange(e, name, data, change) {
-    console.log(change)
-    this.setState({lastOnChange: {name, data, change}})
+  _onChange() {
+    console.log("styleguide data change")
   },
 
-  _onSubmit(e, data) {
-    this.setState({lastOnSubmit: {data}})
-    e.preventDefault()
+  _onSubmit(e) {
+    console.log("styleguide data submit")
+    e.preventDefault();
   },
 
   _onSave(value) {
