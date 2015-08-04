@@ -25,7 +25,8 @@ const Form = createClass({
     onChange: PropTypes.func,
     onSubmit: PropTypes.func,
     trim: PropTypes.bool,
-    trimOnSubmit: PropTypes.bool
+    trimOnSubmit: PropTypes.bool,
+    endpoint: PropTypes.string,
   },
 
   getDefaultProps() {
@@ -37,6 +38,13 @@ const Form = createClass({
 
   getInitialState() {
     return FormStore.getState();
+  },
+
+
+  componentWillMount() {
+    if (this.props.endpoint) {
+      FormActions.setEndpoint(this.props.endpoint)
+    }
   },
 
 
