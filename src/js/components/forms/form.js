@@ -10,6 +10,8 @@ const {
 
 const getElementData = getFormData.getNamedFormElementData;
 
+const throttleTimer = {};
+
 
 const Form = createClass({
 
@@ -27,6 +29,18 @@ const Form = createClass({
       trim: false,
       trimOnSubmit: false
     }
+  },
+
+  throttle(name, change) {
+
+    if (typeof throttleTimer[name] !== "undefined") {
+        clearTimeout(throttleTimer[name]);
+    }
+
+    throttleTimer[name] = setTimeout( () => {
+      console.log(change)
+    }, 5000);
+
   },
 
   _onChange(e) {
