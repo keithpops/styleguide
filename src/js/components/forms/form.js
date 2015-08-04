@@ -34,7 +34,7 @@ const Form = createClass({
   throttle(name, change) {
 
     if (typeof throttleTimer[name] !== "undefined") {
-        clearTimeout(throttleTimer[name]);
+      clearTimeout(throttleTimer[name]);
     }
 
     throttleTimer[name] = setTimeout( () => {
