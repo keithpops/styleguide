@@ -2,6 +2,8 @@ import React from 'react';
 import getFormData from 'get-form-data';
 import assign from 'react/lib/Object.assign';
 
+import 'node-fetch';
+
 
 const {
   createClass,
@@ -38,7 +40,14 @@ const Form = createClass({
     }
 
     throttleTimer[name] = setTimeout( () => {
-      console.log(change)
+      console.log(change);
+
+      fetch('http://httpbin.org/post', { method: 'POST', body: JSON.stringify(change) })
+        .then(function(res) {
+          return res.json();
+        }).then(function(json) {
+          console.log(json);
+        });
     }, 5000);
 
   },
