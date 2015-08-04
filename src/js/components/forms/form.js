@@ -4,6 +4,8 @@ import assign from 'react/lib/Object.assign';
 
 import 'node-fetch';
 
+import FormStore from './stores/form-store';
+import FormActions from './actions/form-actions';
 
 const {
   createClass,
@@ -31,6 +33,25 @@ const Form = createClass({
       trim: false,
       trimOnSubmit: false
     }
+  },
+
+  getInitialState() {
+    return FormStore.getState();
+  },
+
+
+  componentDidMount() {
+    FormStore.listen(this.onChange);
+  },
+
+
+  componentWillUnmount() {
+    FormStore.unlisten(this.onChange);
+  },
+
+
+  onChange(state) {
+    this.setState(state);
   },
 
   throttle(name, change) {
