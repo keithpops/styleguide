@@ -1,6 +1,6 @@
-var alt = require('../../../alt');
+import alt from '../../../alt';
+import FormActions from '../actions/form-actions';
 
-var FormActions = require('../actions/form-actions');
 
 
 class FormStore {
