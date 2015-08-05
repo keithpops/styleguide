@@ -66,10 +66,7 @@ class FormStore {
 
       let payload = JSON.stringify(this.data.updated);
 
-      console.log('sending payload')
-      console.log(payload)
-
-      fetch('http://httpbin.org/post', { method: 'POST', body: JSON.stringify(this.data.updated) })
+      fetch('http://httpbin.org/post', { method: 'POST', body: payload })
         .then(function(res) {
           return res.json();
         }).then(function(json) {
