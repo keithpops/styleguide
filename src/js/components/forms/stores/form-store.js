@@ -19,7 +19,6 @@ class FormStore {
   }
 
   onSetEndpoint(string) {
-    console.log('in form store endpoint')
     this.get = string;
     this.post = string;
     this.autosave = true;
