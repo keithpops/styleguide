@@ -1,6 +1,8 @@
 import alt from '../../../alt';
 import FormActions from '../actions/form-actions';
 
+import getFormData from 'get-form-data';
+const getElementData = getFormData.getNamedFormElementData;
 
 
 class FormStore {
@@ -16,6 +18,14 @@ class FormStore {
     };
 
     this.bindActions(FormActions);
+  }
+
+  onChange(e) {
+    let {form, name} = e[0].target;
+    let data = getElementData(form, name, {trim: this.trim});
+    let change = {};
+    change[name] = data;
+    FormActions.queueChange.defer(change)
   }
 
   onSaving(bool) {
