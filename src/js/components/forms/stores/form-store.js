@@ -1,9 +1,13 @@
 import alt from '../../../alt';
 import FormActions from '../actions/form-actions';
 
+import 'node-fetch';
+
 import getFormData from 'get-form-data';
 const getElementData = getFormData.getNamedFormElementData;
 
+let queueChangeTimer = {};
+let updateTimer;
 
 class FormStore {
   constructor() {
@@ -28,6 +32,21 @@ class FormStore {
     FormActions.queueChange.defer(change)
   }
 
+  onQueueChange(obj) {
+    for (let key in obj) {
+
+      if (typeof queueChangeTimer[key] !== "undefined") {
+        clearTimeout(queueChangeTimer[key]);
+      }
+
+      queueChangeTimer[key] = setTimeout( () => {
+        this.data.updated[key] = obj[key];
+        FormActions.update.defer();
+      }, 5000);
+
+    }
+  }
+
   onSaving(bool) {
     this.saving = bool;
   }
@@ -36,6 +55,29 @@ class FormStore {
     this.get = string;
     this.post = string;
     this.autosave = true;
+  }
+
+  onUpdate() {
+    if (typeof updateTimer !== "undefined") {
+      clearTimeout(updateTimer);
+    }
+
+    updateTimer = setTimeout( () => {
+
+      let payload = JSON.stringify(this.data.updated);
+
+      console.log('sending payload')
+      console.log(payload)
+
+      fetch('http://httpbin.org/post', { method: 'POST', body: JSON.stringify(this.data.updated) })
+        .then(function(res) {
+          return res.json();
+        }).then(function(json) {
+          console.log(json);
+        });
+
+    }, 5000);
+
   }
 }
 

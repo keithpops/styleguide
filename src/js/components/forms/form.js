@@ -1,8 +1,6 @@
 import React from 'react';
 import assign from 'react/lib/Object.assign';
 
-import 'node-fetch';
-
 import FormStore from './stores/form-store';
 import FormActions from './actions/form-actions';
 
@@ -10,8 +8,6 @@ const {
   createClass,
   PropTypes,
 } = React;
-
-const throttleTimer = {};
 
 
 const Form = createClass({
@@ -59,24 +55,6 @@ const Form = createClass({
     this.setState(state);
   },
 
-  throttle(name, change) {
-
-    if (typeof throttleTimer[name] !== "undefined") {
-      clearTimeout(throttleTimer[name]);
-    }
-
-    throttleTimer[name] = setTimeout( () => {
-      console.log(change);
-
-      fetch('http://httpbin.org/post', { method: 'POST', body: JSON.stringify(change) })
-        .then(function(res) {
-          return res.json();
-        }).then(function(json) {
-          console.log(json);
-        });
-    }, 5000);
-
-  },
 
   _onSubmit(e) {
     var data = getFormData(e.target, {trim: this.props.trimOnSubmit || this.props.trim});
