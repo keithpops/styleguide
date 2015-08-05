@@ -18,6 +18,10 @@ class FormStore {
     this.bindActions(FormActions);
   }
 
+  onSaving(bool) {
+    this.saving = bool;
+  }
+
   onSetEndpoint(string) {
     this.get = string;
     this.post = string;
