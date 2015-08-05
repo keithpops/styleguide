@@ -2,5 +2,8 @@ import alt from '../../../alt';
 
 
 export default alt.generateActions(
-  'setEndpoint'
+  'change',
+  'queueChange',
+  'setEndpoint',
+  'update'
 );
