@@ -17,8 +17,8 @@ class FormStore {
     this.saving = false;
     this.autosave = false;
     this.data = {
-      original: [],
-      updated: [],
+      original: {},
+      updated: {},
     };
 
     this.bindActions(FormActions);
