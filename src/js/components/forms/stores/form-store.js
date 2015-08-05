@@ -7,6 +7,8 @@ class FormStore {
   constructor() {
     this.get = '';
     this.post = '';
+    this.trim = false;
+    this.saving = false;
     this.autosave = false;
     this.data = {
       original: [],
