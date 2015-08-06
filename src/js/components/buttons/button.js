@@ -6,7 +6,7 @@ export default React.createClass({
   displayName: "Button",
 
   propTypes: {
-   type: Type.oneOf([null, 'danger', 'secondary', 'previous', 'next']),
+   type: Type.oneOf([null, 'danger', 'secondary', 'baby', 'previous', 'next']),
    label: Type.string,
    size: Type.oneOf([null, 'sm']),
    disabled: Type.bool,

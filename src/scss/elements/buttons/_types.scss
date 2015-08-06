@@ -11,6 +11,18 @@
   }
 }
 
+.button-baby {
+  background: $blue-baby;
+
+  &:hover {
+    background: $blue;
+  }
+
+  &:active {
+    background: $blue-tertiary;
+  }
+}
+
 // Danger Button
 .button-danger {
   background: $orange;
@@ -58,6 +70,18 @@
 
     &:active {
       color: $orange-dark;
+    }
+  }
+
+  &.button-baby {
+    color: $blue-baby;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:active {
+      color: $blue-tertiary;
     }
   }
 

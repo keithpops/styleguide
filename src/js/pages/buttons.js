@@ -34,6 +34,7 @@ export default React.createClass({
       <div title="Links">
         <Button label=".button-link" link={ true } extraClasses={ ["mr3"] } />
         <Button label=".button-link.button-secondary" type="secondary" link={ true } extraClasses={ ["mr3"] } />
+        <Button label=".button-link.button-baby" type="baby" link={ true } extraClasses={ ["mr3"] } />
         <Button label=".button-link.button-danger" type="danger" link={ true } extraClasses={ ["mr3"] } />
         <Button label=".button-link:disabled" link={ true } disabled={ true } extraClasses={ ["mr3"] } />
         <Button label=".button-link.button-sm" size="sm" link={ true } extraClasses={ ["mr3"] } />
