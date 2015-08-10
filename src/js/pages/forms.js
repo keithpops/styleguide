@@ -7,6 +7,7 @@ import TextField from '../components/forms/fields/text';
 import TextArea from '../components/forms/fields/textarea';
 import Checkbox from '../components/forms/fields/checkbox';
 import Radio from '../components/forms/fields/radio';
+import Slider from '../components/forms/fields/slider';
 import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
@@ -137,6 +138,10 @@ export default React.createClass({
             </div>
           </form>
           <hr />
+        </div>
+        <div title="Input Variants">
+          <h3>Slider</h3>
+          <Slider />
         </div>
         <div title="Actionable Forms">
           <hr />
