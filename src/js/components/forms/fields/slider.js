@@ -10,6 +10,9 @@ export default createClass({
 
   render() {
 
-    return <div>Input Slider</div>;
+    return <div className="flex">
+      <div className="flex-auto bg-grey-5 rounded-1" style={{height: '10px'}}></div>
+      <div className="circle bc-blue-secondary bg-blue bw-3 b" style={{height: '8px', width: '8px'}}></div>
+    </div>;
   }
 });
