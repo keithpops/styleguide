@@ -33,6 +33,12 @@ class FormStore {
   }
 
   onQueueChange(obj) {
+
+    let {
+      original,
+      updated
+    } = this.data;
+
     for (let key in obj) {
 
       if (typeof queueChangeTimer[key] !== "undefined") {
@@ -40,7 +46,8 @@ class FormStore {
       }
 
       queueChangeTimer[key] = setTimeout( () => {
-        this.data.updated[key] = obj[key];
+
+        updated[key] = obj[key];
         FormActions.update.defer();
       }, 5000);
 
@@ -66,7 +73,7 @@ class FormStore {
 
       let payload = JSON.stringify(this.data.updated);
 
-      fetch('http://httpbin.org/post', { method: 'POST', body: payload })
+      fetch(this.post, { method: 'PATCH', headers: {contentType: "application/json"}, body: payload })
         .then(function(res) {
           return res.json();
         }).then(function(json) {
