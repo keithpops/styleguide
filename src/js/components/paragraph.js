@@ -9,6 +9,8 @@ const {
 
 const Paragraph = createClass({
 
+  displayName: "Paragraph",
+
   render() {
 
     return <p>{this.props.children}</p>;
