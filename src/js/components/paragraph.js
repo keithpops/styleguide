@@ -17,6 +17,14 @@ const Paragraph = createClass({
     size: PropTypes.oneOf([null, 'small']),
   },
 
+  alignment(string) {
+    if (string === "right") {
+      return "right-align"
+    } else if (string === "center") {
+      return "center"
+    }
+  },
+
   renderChildren() {
 
     let {
