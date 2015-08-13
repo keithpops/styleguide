@@ -17,6 +17,23 @@ const Paragraph = createClass({
     size: PropTypes.oneOf([null, 'small']),
   },
 
+  renderChildren() {
+
+    let {
+      children,
+      size,
+    } = this.props;
+
+    if (size) {
+
+      return <small>{children}</small>;
+
+    } else {
+      return children;
+    }
+
+  },
+
   render() {
 
     return <p>{this.props.children}</p>;
