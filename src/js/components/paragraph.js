@@ -44,7 +44,7 @@ const Paragraph = createClass({
 
   render() {
 
-    return <p>{this.props.children}</p>;
+    return <p className={this.alignment(this.props.align)}>{this.renderChildren()}</p>;
   }
 
 });
