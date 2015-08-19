@@ -1,18 +1,24 @@
 #!/usr/bin/env node
 
-import Liftoff from 'liftoff';
+'use strict'
+var Liftoff = require('liftoff');
 
 process.env.INIT_CWD = process.cwd();
 
-const cli = new Liftoff({
+var cli = new Liftoff({
   name: 'namely-ui',
 });
 
 
 // Exit with 0 or 1
-let failed = false;
+var failed = false;
 process.once('exit', function(code) {
   if (code === 0 && failed) {
     process.exit(1);
   }
+});
+
+
+cli.launch({
+
 });
