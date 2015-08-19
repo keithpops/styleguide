@@ -27,3 +27,9 @@ $ npm run compile
 ```
 
 This runs every component found in ```src/js/components/``` through Babel and places it in the ```dist/``` directory, including any sub-directories. Then it grabs the base namely-ui module from ```lib/namely-ui.js``` to run that through Babel and place it in ```dist/``` as well. Finally, it grabs ```lib/namely-ui.scss```, compiles it to css, autoprefixes, and minifies it before placing it in ```dist/```. 
+
+
+Namely-UI CLI
+-------------
+
+The CLI tools can be installed by running ```npm install -g``` which will allow you to use ```namely-ui [cmd]```.
