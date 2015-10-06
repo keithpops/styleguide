@@ -5,6 +5,8 @@ import ActionBar from './bars/action-bar';
 import ViewStore from './stores/view-store';
 import ViewActions from './actions/view-actions';
 
+import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
+
 const {
   createClass,
   createElement,
@@ -51,7 +53,11 @@ var View = createClass({
 
 
   render() {
-    return this.actionBar();
+    return (
+      <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
+        {this.actionBar()}
+      </VelocityTransitionGroup>
+    );
   }
 
 });
