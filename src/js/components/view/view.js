@@ -54,7 +54,7 @@ var View = createClass({
 
   render() {
     return (
-      <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
+      <VelocityTransitionGroup enter={{animation:{opacity: 1, translateY: "0%"}, duration: 200}} leave={{animation:{opacity: 0, translateY: "-100%"}, duration: 200}}>
         {this.actionBar()}
       </VelocityTransitionGroup>
     );
