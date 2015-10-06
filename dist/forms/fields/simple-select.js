@@ -56,7 +56,7 @@ exports['default'] = _react2['default'].createClass({
 
   iconClasses: function iconClasses() {
     var classes = ['icon', 'icon-arrow-down', 'absolute', 'right', 'mxn3'];
-    this.props.disabled ? classes.push('grey-25') : classes.push('blue');
+    this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
   },
 
