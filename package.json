@@ -10,7 +10,7 @@
   "scripts": {
     "prepublish": "npm run compile",
     "start": "gulp",
-    "start:webpack": "node server",
+    "start:webpack": "gulp & node server",
     "compile": "babel -d dist/ src/js/components/"
   },
   "engine": {
