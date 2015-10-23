@@ -6,7 +6,7 @@ var proxy = httpProxy.createProxyServer();
 var app = express();
 
 var isProduction = process.env.NODE_ENV === 'production';
-var port = isProduction ? process.env.PORT : 3000;
+var port = isProduction ? process.env.PORT : 8080;
 var publicPath = path.resolve(__dirname, 'public');
 
 app.use(express.static(publicPath));
@@ -24,7 +24,7 @@ if (!isProduction) {
   // to webpack-dev-server
   app.all('/build/*', function (req, res) {
     proxy.web(req, res, {
-        target: 'http://localhost:8080'
+        target: 'http://localhost:8000'
     });
   });
 
