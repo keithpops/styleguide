@@ -1,8 +1,6 @@
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
-var browserify = require('browserify');
-var babelify = require('babelify');
 var sass = require('gulp-sass');
 var autoprefix = require('gulp-autoprefixer');
 var scsslint = require('gulp-scss-lint');
@@ -26,19 +24,6 @@ function string_src(filename, string) {
   }
   return src
 }
-
-gulp.task('scripts', function(){
-  browserify({
-    entries: './src/js/index.js',
-    debug: true
-  })
-  .transform(babelify)
-  .bundle()
-  .on('error', gutil.log)
-  .pipe(source('app.js'))
-  .pipe(gulp.dest('./public'))
-  .pipe(connect.reload());
-});
 
 gulp.task('icons', function(){
   gulp.src(['./src/lib/icons/*.svg'])
@@ -89,11 +74,10 @@ gulp.task('colors', function(){
   .pipe(gulp.dest('./src/scss/base/'));
 });
 
-gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
+gulp.task('server', ['icons', 'colors', 'styles'], function(){
   connect.server({
     root: ['public'],
-    port: gutil.env.port || 8080,
-    livereload: true,
+    port: gutil.env.port || 7000,
     middleware: function() {
       return [
         history()
@@ -107,7 +91,6 @@ gulp.task('watch', function(){
   gulp.watch('src/lib/scss/_icons-template.scss', ['icons']);
   gulp.watch('src/lib/_colors.json', ['colors']);
   gulp.watch('src/scss/**', ['scss-lint', 'styles']);
-  gulp.watch('src/js/**', ['scripts']);
 });
 
 gulp.task('package:css', ['icons', 'colors'], function(){
