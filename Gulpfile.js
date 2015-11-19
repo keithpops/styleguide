@@ -9,7 +9,6 @@ var connect = require('gulp-connect');
 var history = require('connect-history-api-fallback');
 var jsonSass = require('gulp-json-sass');
 var header = require('gulp-header');
-var stringifyObject = require('stringify-object');
 var gutil = require('gulp-util');
 var iconfont = require('gulp-iconfont');
 var iconfontCss = require('gulp-iconfont-css');
@@ -17,7 +16,7 @@ var fontName = 'icons';
 
 function string_src(filename, string) {
   var src = require('stream').Readable({ objectMode: true })
-  var prettyJSON = stringifyObject(string, {singleQuotes: false});
+  var prettyJSON = JSON.stringify(string);
   src._read = function () {
     this.push(new gutil.File({ cwd: "", base: "", path: filename, contents: new Buffer(prettyJSON) }))
     this.push(null)
@@ -40,8 +39,13 @@ gulp.task('icons', function(){
       centerHorizontally: true,
       fontHeight: 1001
     }))
-    .on('codepoints', function(codepoints, options) {
-      string_src('_icons.json', codepoints).pipe(gulp.dest("./src/lib/"));
+    .on('glyphs', function(glyphs, options) {
+      var formattedGlyphs = glyphs.map( (glyph) => {
+        return {
+          "name": glyph.name,
+        }
+      });
+      string_src('_icons.json', formattedGlyphs).pipe(gulp.dest("./src/lib/"));
     })
     .pipe(gulp.dest('././public/fonts/'));
 });
