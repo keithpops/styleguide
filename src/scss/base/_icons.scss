@@ -107,143 +107,146 @@
   @if $filename == drag {
     $char: '\E01C';
   }
-  @if $filename == email {
+  @if $filename == edit {
     $char: '\E01D';
   }
-  @if $filename == exit {
+  @if $filename == email {
     $char: '\E01E';
   }
-  @if $filename == expand {
+  @if $filename == exit {
     $char: '\E01F';
   }
-  @if $filename == export {
+  @if $filename == expand {
     $char: '\E020';
   }
-  @if $filename == feed {
+  @if $filename == export {
     $char: '\E021';
   }
-  @if $filename == flag {
+  @if $filename == feed {
     $char: '\E022';
   }
-  @if $filename == flagpole {
+  @if $filename == flag {
     $char: '\E023';
   }
-  @if $filename == folder-open {
+  @if $filename == flagpole {
     $char: '\E024';
   }
-  @if $filename == folder {
+  @if $filename == folder-open {
     $char: '\E025';
   }
-  @if $filename == graph {
+  @if $filename == folder {
     $char: '\E026';
   }
-  @if $filename == heart-outline {
+  @if $filename == graph {
     $char: '\E027';
   }
-  @if $filename == heart {
+  @if $filename == heart-outline {
     $char: '\E028';
   }
-  @if $filename == help {
+  @if $filename == heart {
     $char: '\E029';
   }
-  @if $filename == home {
+  @if $filename == help {
     $char: '\E02A';
   }
-  @if $filename == key {
+  @if $filename == home {
     $char: '\E02B';
   }
-  @if $filename == link {
+  @if $filename == key {
     $char: '\E02C';
   }
-  @if $filename == list {
+  @if $filename == link {
     $char: '\E02D';
   }
-  @if $filename == location {
+  @if $filename == list {
     $char: '\E02E';
   }
-  @if $filename == lock {
+  @if $filename == location {
     $char: '\E02F';
   }
-  @if $filename == mobile {
+  @if $filename == lock {
     $char: '\E030';
   }
-  @if $filename == namely-inverted {
+  @if $filename == mobile {
     $char: '\E031';
   }
-  @if $filename == namely {
+  @if $filename == namely-inverted {
     $char: '\E032';
   }
-  @if $filename == paperclip {
+  @if $filename == namely {
     $char: '\E033';
   }
-  @if $filename == pencil {
+  @if $filename == paperclip {
     $char: '\E034';
   }
-  @if $filename == people {
+  @if $filename == pencil {
     $char: '\E035';
   }
-  @if $filename == person-add {
+  @if $filename == people {
     $char: '\E036';
   }
-  @if $filename == person {
+  @if $filename == person-add {
     $char: '\E037';
   }
-  @if $filename == phone {
+  @if $filename == person {
     $char: '\E038';
   }
-  @if $filename == pin {
+  @if $filename == phone {
     $char: '\E039';
   }
-  @if $filename == plane {
+  @if $filename == pin {
     $char: '\E03A';
   }
-  @if $filename == print {
+  @if $filename == plane {
     $char: '\E03B';
   }
-  @if $filename == search {
+  @if $filename == print {
     $char: '\E03C';
   }
-  @if $filename == settings {
+  @if $filename == search {
     $char: '\E03D';
   }
-  @if $filename == social-fb {
+  @if $filename == settings {
     $char: '\E03E';
   }
-  @if $filename == social-google {
+  @if $filename == social-fb {
     $char: '\E03F';
   }
-  @if $filename == social-googleplus {
+  @if $filename == social-google {
     $char: '\E040';
   }
-  @if $filename == social-linkedin {
+  @if $filename == social-googleplus {
     $char: '\E041';
   }
-  @if $filename == social-tumblr {
+  @if $filename == social-linkedin {
     $char: '\E042';
   }
-  @if $filename == social-twitter {
+  @if $filename == social-tumblr {
     $char: '\E043';
   }
-  @if $filename == star {
+  @if $filename == social-twitter {
     $char: '\E044';
   }
-  @if $filename == tag {
+  @if $filename == star {
     $char: '\E045';
   }
-  @if $filename == tags {
+  @if $filename == tag {
     $char: '\E046';
   }
-  @if $filename == team {
+  @if $filename == tags {
     $char: '\E047';
   }
-  @if $filename == upload {
+  @if $filename == team {
     $char: '\E048';
   }
-  @if $filename == view-stop {
+  @if $filename == upload {
     $char: '\E049';
   }
-  @if $filename == view {
+  @if $filename == view-stop {
     $char: '\E04A';
+  }
+  @if $filename == view {
+    $char: '\E04B';
   }
   @return $char;
 }
@@ -276,52 +279,53 @@ $icon-document-blank: '\E019';
 $icon-document: '\E01A';
 $icon-download: '\E01B';
 $icon-drag: '\E01C';
-$icon-email: '\E01D';
-$icon-exit: '\E01E';
-$icon-expand: '\E01F';
-$icon-export: '\E020';
-$icon-feed: '\E021';
-$icon-flag: '\E022';
-$icon-flagpole: '\E023';
-$icon-folder-open: '\E024';
-$icon-folder: '\E025';
-$icon-graph: '\E026';
-$icon-heart-outline: '\E027';
-$icon-heart: '\E028';
-$icon-help: '\E029';
-$icon-home: '\E02A';
-$icon-key: '\E02B';
-$icon-link: '\E02C';
-$icon-list: '\E02D';
-$icon-location: '\E02E';
-$icon-lock: '\E02F';
-$icon-mobile: '\E030';
-$icon-namely-inverted: '\E031';
-$icon-namely: '\E032';
-$icon-paperclip: '\E033';
-$icon-pencil: '\E034';
-$icon-people: '\E035';
-$icon-person-add: '\E036';
-$icon-person: '\E037';
-$icon-phone: '\E038';
-$icon-pin: '\E039';
-$icon-plane: '\E03A';
-$icon-print: '\E03B';
-$icon-search: '\E03C';
-$icon-settings: '\E03D';
-$icon-social-fb: '\E03E';
-$icon-social-google: '\E03F';
-$icon-social-googleplus: '\E040';
-$icon-social-linkedin: '\E041';
-$icon-social-tumblr: '\E042';
-$icon-social-twitter: '\E043';
-$icon-star: '\E044';
-$icon-tag: '\E045';
-$icon-tags: '\E046';
-$icon-team: '\E047';
-$icon-upload: '\E048';
-$icon-view-stop: '\E049';
-$icon-view: '\E04A';
+$icon-edit: '\E01D';
+$icon-email: '\E01E';
+$icon-exit: '\E01F';
+$icon-expand: '\E020';
+$icon-export: '\E021';
+$icon-feed: '\E022';
+$icon-flag: '\E023';
+$icon-flagpole: '\E024';
+$icon-folder-open: '\E025';
+$icon-folder: '\E026';
+$icon-graph: '\E027';
+$icon-heart-outline: '\E028';
+$icon-heart: '\E029';
+$icon-help: '\E02A';
+$icon-home: '\E02B';
+$icon-key: '\E02C';
+$icon-link: '\E02D';
+$icon-list: '\E02E';
+$icon-location: '\E02F';
+$icon-lock: '\E030';
+$icon-mobile: '\E031';
+$icon-namely-inverted: '\E032';
+$icon-namely: '\E033';
+$icon-paperclip: '\E034';
+$icon-pencil: '\E035';
+$icon-people: '\E036';
+$icon-person-add: '\E037';
+$icon-person: '\E038';
+$icon-phone: '\E039';
+$icon-pin: '\E03A';
+$icon-plane: '\E03B';
+$icon-print: '\E03C';
+$icon-search: '\E03D';
+$icon-settings: '\E03E';
+$icon-social-fb: '\E03F';
+$icon-social-google: '\E040';
+$icon-social-googleplus: '\E041';
+$icon-social-linkedin: '\E042';
+$icon-social-tumblr: '\E043';
+$icon-social-twitter: '\E044';
+$icon-star: '\E045';
+$icon-tag: '\E046';
+$icon-tags: '\E047';
+$icon-team: '\E048';
+$icon-upload: '\E049';
+$icon-view-stop: '\E04A';
+$icon-view: '\E04B';
 
 
 @mixin icon($filename, $insert: before) {
@@ -441,6 +445,10 @@ $icon-view: '\E04A';
 
 .icon-drag {
   @include icon(drag);
+}
+
+.icon-edit {
+  @include icon(edit);
 }
 
 .icon-email {
