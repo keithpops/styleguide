@@ -7,3 +7,4 @@ public/app.css.map
 public/fonts/
 dist/namely-ui.css
 dump.rdb
+src/scss/base/_icons.scss
