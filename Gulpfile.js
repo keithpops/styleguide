@@ -50,9 +50,9 @@ gulp.task('styles', function(){
   gulp.src('./src/scss/app.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({errLogToConsole: true}))
-  .pipe(sourcemaps.write('.'))
   .pipe(minifyCSS({processImport: false}))
   .pipe(autoprefix())
+  .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest('./public'))
   .pipe(connect.reload());
 });

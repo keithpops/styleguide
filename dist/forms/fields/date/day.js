@@ -50,8 +50,8 @@ exports["default"] = _react2["default"].createClass({
       "div",
       { className: this.classes() },
       _react2["default"].createElement(
-        "a",
-        { className: "semibold block center c-fade h4",
+        "div",
+        { className: "semibold center c-fade h4",
           href: "#",
           onClick: this.handleClick },
         this.props.date.date()

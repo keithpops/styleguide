@@ -24,9 +24,9 @@ var _fieldsRadio = require('./fields/radio');
 
 var _fieldsRadio2 = _interopRequireDefault(_fieldsRadio);
 
-var _fieldsSimpleSelect = require('./fields/simple-select');
+var _fieldsSelectSimpleSelect = require('./fields/select/simple-select');
 
-var _fieldsSimpleSelect2 = _interopRequireDefault(_fieldsSimpleSelect);
+var _fieldsSelectSimpleSelect2 = _interopRequireDefault(_fieldsSelectSimpleSelect);
 
 var _fieldsText = require('./fields/text');
 
@@ -41,7 +41,7 @@ exports['default'] = {
   Date: _fieldsDate2['default'],
   Number: _fieldsNumber2['default'],
   Radio: _fieldsRadio2['default'],
-  SimpleSelect: _fieldsSimpleSelect2['default'],
+  SimpleSelect: _fieldsSelectSimpleSelect2['default'],
   Text: _fieldsText2['default'],
   Textarea: _fieldsTextarea2['default']
 };

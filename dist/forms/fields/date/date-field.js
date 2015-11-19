@@ -6,9 +6,9 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _date_picker = require('./date_picker');
+var _datePicker = require('./date-picker');
 
-var _date_picker2 = _interopRequireDefault(_date_picker);
+var _datePicker2 = _interopRequireDefault(_datePicker);
 
 var _fieldErrors = require('../../field-errors');
 
@@ -42,6 +42,7 @@ exports['default'] = _react2['default'].createClass({
     label: Type.string,
     maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+    name: Type.string,
     onChange: Type.func,
     placeholder: Type.string,
     value: Type.oneOfType([Type.object, Type.string, Type.number])
@@ -129,7 +130,7 @@ exports['default'] = _react2['default'].createClass({
         _react2['default'].createElement('div', { className: 'modal-clear-bg',
           onClick: this.hideDatePicker,
           style: { zIndex: this.baseZIndex() - 2 } }),
-        _react2['default'].createElement(_date_picker2['default'], { date: this.state.value || (0, _moment2['default'])(),
+        _react2['default'].createElement(_datePicker2['default'], { date: this.state.value || (0, _moment2['default'])(),
           maxDate: this.boundedMaxDate(),
           minDate: this.boundedMinDate(),
           onChangeDate: this.changeDate,
@@ -226,6 +227,7 @@ exports['default'] = _react2['default'].createClass({
           style: { zIndex: this.baseZIndex() } },
         _react2['default'].createElement('input', { className: this.inputClasses(),
           disabled: this.state.disabled,
+          name: this.props.name,
           onFocus: this.showDatePicker,
           readOnly: true,
           type: 'text',

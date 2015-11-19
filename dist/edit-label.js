@@ -18,9 +18,9 @@ var _popup = require('./popup');
 
 var _popup2 = _interopRequireDefault(_popup);
 
-var _formsFieldError = require('./forms/field-error');
+var _formsFieldErrors = require('./forms/field-errors');
 
-var _formsFieldError2 = _interopRequireDefault(_formsFieldError);
+var _formsFieldErrors2 = _interopRequireDefault(_formsFieldErrors);
 
 var _lib_colorsJson = require('../../lib/_colors.json');
 
@@ -33,6 +33,7 @@ var _mixinsOutsideClick2 = _interopRequireDefault(_mixinsOutsideClick);
 var createClass = _react2['default'].createClass;
 var Type = _react2['default'].PropTypes;
 exports['default'] = createClass({
+
   displayName: 'EditLabel',
 
   mixins: [_mixinsOutsideClick2['default']],
@@ -136,8 +137,8 @@ exports['default'] = createClass({
   _showError: function _showError() {
     return _react2['default'].createElement(
       'div',
-      { className: 'fill px2' },
-      _react2['default'].createElement(_formsFieldError2['default'], { message: this.props.errorMessage })
+      { className: 'fill' },
+      _react2['default'].createElement(_formsFieldErrors2['default'], { errors: [this.props.errorMessage] })
     );
   },
 
@@ -151,13 +152,13 @@ exports['default'] = createClass({
       var textStyle = {
         borderColor: this.state.hasErrors ? _lib_colorsJson2['default']["orange"][""] : void 0,
         height: this.state.textHeight,
-        width: "auto"
+        width: "auto",
+        overflow: 'hidden'
       };
 
       return _react2['default'].createElement(
         'div',
         { className: 'flex flex-center flex-wrap', ref: 'wrapper' },
-        this.state.hasErrors ? this._showError() : void 0,
         _react2['default'].createElement('textarea', {
           className: this._getTextClasses(),
           defaultValue: this.props.label,
@@ -203,7 +204,8 @@ exports['default'] = createClass({
               )
             )
           )
-        )
+        ),
+        this.state.hasErrors ? this._showError() : void 0
       );
     } else {
       return _react2['default'].createElement(

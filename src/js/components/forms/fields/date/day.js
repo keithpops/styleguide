@@ -43,11 +43,11 @@ export default React.createClass({
   render() {
     return (
       <div className={this.classes()}>
-        <a className="semibold block center c-fade h4"
+        <div className="semibold center c-fade h4"
            href="#"
            onClick={this.handleClick}>
           {this.props.date.date()}
-        </a>
+        </div>
       </div>
     );
   }

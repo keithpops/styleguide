@@ -12,7 +12,7 @@ $day-width: $space-4;
 .date-field {
   width: $day-width * 7;
 
-  .icon {
+  .icon-calendar {
     right: $space-2;
     top: 12%;
   }
@@ -62,7 +62,7 @@ $day-width: $space-4;
 
 .day {
 
-  a {
+  div {
     height: $day-width - $space-1;
     padding-top: $space-1 / 2;
     width: $day-width;

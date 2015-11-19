@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from './icon';
 import Popup from './popup';
-import FieldError from './forms/field-error';
+import FieldErrors from './forms/field-errors';
 import Colors from '../../lib/_colors.json';
 import OutsideClick from './mixins/outside-click';
 
@@ -11,6 +11,7 @@ const {
 } = React;
 
 export default createClass({
+
   displayName: 'EditLabel',
 
   mixins: [OutsideClick],
@@ -114,8 +115,8 @@ export default createClass({
 
   _showError() {
     return (
-      <div className="fill px2">
-        <FieldError message={this.props.errorMessage} />
+      <div className="fill">
+        <FieldErrors errors={[this.props.errorMessage]} />
       </div>
     );
   },
@@ -130,12 +131,12 @@ export default createClass({
       const textStyle = {
         borderColor: this.state.hasErrors ? Colors["orange"][""] : void 0,
         height: this.state.textHeight,
-        width: "auto"
+        width: "auto",
+        overflow: 'hidden'
       };
 
       return (
         <div className="flex flex-center flex-wrap" ref="wrapper">
-          {this.state.hasErrors ? this._showError() : void 0}
           <textarea
             className={this._getTextClasses()}
             defaultValue={this.props.label}
@@ -164,6 +165,7 @@ export default createClass({
               </div>
             </div>
           </Popup>
+          {this.state.hasErrors ? this._showError() : void 0}
         </div>
       );
     } else {

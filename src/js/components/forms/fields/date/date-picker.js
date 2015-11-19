@@ -1,5 +1,5 @@
-import DayPicker from './day_picker'
-import MonthPicker from './month_picker'
+import DayPicker from './day-picker'
+import MonthPicker from './month-picker'
 import React from 'react';
 
 const Type = React.PropTypes;

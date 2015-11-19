@@ -17,7 +17,9 @@ exports['default'] = _react2['default'].createClass({
 
   propTypes: {
     name: Type.string.isRequired,
-    extraClasses: Type.arrayOf(Type.string)
+    extraClasses: Type.arrayOf(Type.string),
+    size: Type.number,
+    top: Type.number
   },
 
   getDefaultProps: function getDefaultProps() {
@@ -27,19 +29,21 @@ exports['default'] = _react2['default'].createClass({
   },
 
   classes: function classes() {
-    var classes = ['icon-' + this.props.name];
+    var classes = ['icon-' + this.props.name, 'relative'];
+    return classes.concat(this.props.extraClasses).join(' ');
+  },
 
-    if (this.props.extraClasses) {
-      classes = classes.concat(this.props.extraClasses);
-    }
-
-    return classes.join(' ');
+  style: function style() {
+    return {
+      fontSize: this.props.size,
+      top: this.props.top
+    };
   },
 
   render: function render() {
     var name = this.props.name;
 
-    return _react2['default'].createElement('i', { className: this.classes(), onClick: this.props.onClick });
+    return _react2['default'].createElement('i', { className: this.classes(), onClick: this.props.onClick, style: this.style() });
   }
 });
 module.exports = exports['default'];

@@ -7,7 +7,9 @@ export default React.createClass({
 
   propTypes: {
     name: Type.string.isRequired,
-    extraClasses: Type.arrayOf(Type.string)
+    extraClasses: Type.arrayOf(Type.string),
+    size: Type.number,
+    top: Type.number
   },
 
   getDefaultProps() {
@@ -17,18 +19,20 @@ export default React.createClass({
   },
 
   classes() {
-    let classes = [`icon-${this.props.name}`];
+    let classes = [`icon-${this.props.name}`, 'relative'];
+    return classes.concat(this.props.extraClasses).join(' ');
+  },
 
-    if (this.props.extraClasses) {
-      classes = classes.concat(this.props.extraClasses);
+  style() {
+    return {
+      fontSize: this.props.size,
+      top: this.props.top
     }
-
-    return classes.join(' ');
   },
 
   render() {
     const name = this.props.name;
 
-    return <i className={this.classes()} onClick={this.props.onClick} />;
+    return <i className={this.classes()} onClick={this.props.onClick} style={this.style()} />;
   }
 });

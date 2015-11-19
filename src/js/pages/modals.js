@@ -45,6 +45,14 @@ export default React.createClass({
               'description':'sets the width of the content container with columns. Default: 9'
             },
             {
+              'prop':'contentHeight',
+              'description':'sets the height of the content container in pixels. Optional'
+            },
+            {
+              'prop':'contentMinHeight',
+              'description':'sets the min-height of the content container in pixels. Optional'
+            },
+            {
               'prop':'isOpen',
               'description':'automatically opens the modal when the parent component renders. Sets modal-background\'s inital state to isOpen:true. Default: false'
             },

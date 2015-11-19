@@ -1,5 +1,5 @@
-import DatePicker from './date_picker';
-import FieldError from '../../field-error';
+import DatePicker from './date-picker';
+import FieldErrors from '../../field-errors';
 import Moment from 'moment';
 import React from 'react';
 
@@ -23,6 +23,7 @@ export default React.createClass({
     label: Type.string,
     maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+    name: Type.string,
     onChange: Type.func,
     placeholder: Type.string,
     value: Type.oneOfType([Type.object, Type.string, Type.number])
@@ -41,10 +42,25 @@ export default React.createClass({
   getInitialState() {
     return {
       value: this.momentDate(this.props.value),
-      disabled: (this.props.disabled || !this.isFormatValid()),
-      errors: this.initErrors(),
+      disabled: this.props.disabled || false,
+      errors: this.props.errors || [],
       show: false
     };
+  },
+
+  componentDidMount() {
+    if (!this.isFormatValid()) {
+      this.setState({
+        disabled: true,
+        errors: ['Invalid date format']
+      });
+    } else {
+      if (!this.isDateValid()) {
+        this.setState({
+          errors: this.state.errors.concat('Invalid date')
+        });
+      }
+    }
   },
 
   baseZIndex() {
@@ -106,27 +122,16 @@ export default React.createClass({
     }
   },
 
-  fieldError() {
-    if (this.state.errors.length > 0) {
-      return <FieldError message={this.state.errors.join('; ')} />;
-    }
-  },
+
 
   hideDatePicker() {
     this.setState({show: false});
   },
 
   iconClasses() {
-    let classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
+    let classes = ['icon-calendar', 'ml1', 'absolute'];
     this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
-  },
-
-  initErrors() {
-    let errors = [];
-    if (!this.isDateValid()) errors.push('Error parsing date');
-    if (!this.isFormatValid()) errors.push('Invalid date format');
-    return errors.concat(this.props.errors);
   },
 
   inputClasses() {
@@ -180,7 +185,7 @@ export default React.createClass({
 
   resetErrors() {
     let errors = [];
-    if (!this.isDateValid()) errors.push('Error parsing date');
+    if (!this.isDateValid()) errors.push('Invalid date');
     this.setState({errors: errors});
   },
 
@@ -196,12 +201,12 @@ export default React.createClass({
     return (
       <div className={this.containerClasses()}>
         {this.label()}
-        {this.fieldError()}
         {this.datePicker()}
         <div className='relative rounded-2 overflow-hidden no-select'
              style={{zIndex: this.baseZIndex()}}>
           <input className={this.inputClasses()}
                  disabled={this.state.disabled}
+                 name={this.props.name}
                  onFocus={this.showDatePicker}
                  readOnly
                  type="text"
@@ -212,6 +217,7 @@ export default React.createClass({
                 style={{zIndex: this.baseZIndex()+2}}></span>
         </div>
         <div className="clearfix"></div>
+        <FieldErrors errors={this.state.errors} />
       </div>
     );
   }

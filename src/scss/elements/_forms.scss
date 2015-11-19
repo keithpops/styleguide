@@ -1,6 +1,7 @@
 input,
 select,
 textarea,
+.simple-select,
 fieldset {
   font-family: $sans-family;
   font-size: $h5;
@@ -43,8 +44,9 @@ textarea {
   vertical-align: middle;
   width: 100%;
 
-  &:not([readonly]):focus {
-    border: 1px solid $grey-25;
+  &:not([readonly]):focus,
+  &:not([readonly]):hover {
+    border: 1px solid $blue-25;
   }
 }
 
@@ -67,7 +69,8 @@ label {
 [type=tel],
 [type=time],
 [type=url],
-[type=week] {
+[type=week],
+.date-field input {
   -webkit-appearance: none;
   border-radius: 3px;
   box-sizing: border-box;
@@ -76,8 +79,9 @@ label {
   vertical-align: middle;
   width: 100%;
 
-  &:focus:not([readonly]) {
-    border: 1px solid $grey-25;
+  &:focus:not([readonly]),
+  &:hover:not([readonly]) {
+    border: 1px solid $blue-25;
   }
 }
 
@@ -190,6 +194,10 @@ label {
 .field-light:disabled {
   background: $grey-10;
   border: 1px solid $grey-10;
+
+  &:hover {
+    border: 1px solid $grey-10;
+  }
 }
 
 .field-light[type=checkbox] {
@@ -199,6 +207,10 @@ label {
 
 .field-light[type=checkbox]:after {
   border: 1px solid $grey-15;
+
+  &:hover {
+    border: 1px solid $blue-25;
+  }
 }
 
 .field-light[type=checkbox]:disabled:after {
@@ -225,26 +237,24 @@ label {
   border: 1px solid $grey-10;
 }
 
-// select field on white background
-.select-light {
-  background: $white;
-  border-color: $grey-10;
-
-  &:disabled {
-    background: $grey-10;
-  }
-}
-
 // fields on dark background (grey form)
 
 .field-dark {
   background: $white;
   border: 1px solid $white;
+
+  &:hover {
+    border: 1px solid $grey-50;
+  }
 }
 
 .field-dark:disabled {
   background: $grey-15;
   border: 1px solid $grey-15;
+
+  &:hover {
+    border: 1px solid $grey-15;
+  }
 }
 
 .field-dark[type=checkbox] {
@@ -282,16 +292,6 @@ label {
   border: 1px solid $grey-15;
 }
 
-.select-dark {
-  background: $white;
-  border: 1px solid $white;
-}
-
-.select-dark:disabled {
-  background: $grey-15;
-  border: 1px solid $grey-10;
-}
-
 // note: there are some very pixel-specific styles here,
 // but I thought that might be ok since these are UI elements
 
@@ -315,7 +315,9 @@ label {
 }
 
 .checkbox-field, .radio-field {
+
   &.read-only, &.inactive {
+
     label {
       cursor: default;
     }
@@ -329,26 +331,33 @@ label {
   &.inactive input {
     background: none;
   }
-
 }
 
-.checkbox-field {
-  .label-right {
-    top: -4px;
-  }
+.checkbox-field .label-right {
+  top: -4px;
 }
 
-.radio-field {
-  .label-right {
-    top: -1px;
-  }
+.radio-field .label-right {
+  top: -1px;
 }
 
 .simple-select {
+
+  &:hover {
+    border-color: $grey-50;
+  }
+
+  &.disabled:hover {
+    border-color: $grey-15;
+  }
+
+  &.bc-orange-hover:hover {
+    border-color: $orange;
+  }
+
   .option:hover {
     background-color: $grey-5;
   }
-
 }
 
 .no-resize {
