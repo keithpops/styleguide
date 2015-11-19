@@ -14,7 +14,7 @@ var header = require('gulp-header');
 var gutil = require('gulp-util');
 var iconfont = require('gulp-iconfont');
 var iconfontCss = require('gulp-iconfont-css');
-var fontName = 'icons';
+var iconfontConfig = require('./src/lib/iconfont-config');
 
 function string_src(filename, string) {
   var src = require('stream').Readable({ objectMode: true })
@@ -42,13 +42,13 @@ gulp.task('scripts', function(){
 gulp.task('icons', function(){
   gulp.src(['./src/lib/icons/*.svg'])
     .pipe(iconfontCss({
-      fontName: fontName,
+      fontName: iconfontConfig,
       path: './src/lib/scss/_icons-template.scss',
       targetPath: '../../src/scss/base/_icons.scss',
       fontPath: '/fonts/'
     }))
     .pipe(iconfont({
-      fontName: fontName,
+      fontName: iconfontConfig.filename,
       normalize: true,
       fixedWidth: true,
       centerHorizontally: true,
