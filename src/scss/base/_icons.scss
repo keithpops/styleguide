@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'icons';
-  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.eot');
-  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.eot?#iefix') format('eot'),
-    url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.woff') format('woff'),
-    url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.ttf') format('truetype'),
-    url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.svg#icons') format('svg');
+  font-family: 'namely-ui-0_1_0-icons';
+  src: url('/fonts/namely-ui-0_1_0-icons.eot');
+  src: url('/fonts/namely-ui-0_1_0-icons.eot?#iefix') format('eot'),
+    url('/fonts/namely-ui-0_1_0-icons.woff') format('woff'),
+    url('/fonts/namely-ui-0_1_0-icons.ttf') format('truetype'),
+    url('/fonts/namely-ui-0_1_0-icons.svg#namely-ui-0_1_0-icons') format('svg');
 }
 
 %icon {
-  font-family: 'icons';
+  font-family: 'namely-ui-0_1_0-icons';
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
