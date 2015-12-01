@@ -18,3 +18,7 @@ deployment:
       - aws s3 sync ./dist s3://namely-styleguide/`echo $CIRCLE_SHA1 | cut -c1-8`/ --acl public-read
       - npm install node-slack-cli -g
       - slack -c namely-ui -m "Deployed styleguide to https://d1pol32eeyc3ek.cloudfront.net/`echo $CIRCLE_SHA1 | cut -c1-8`"
+  staging:
+    branch: f/icon-versioning
+    commands:
+      - slack -c namely-ui -m "I TESTED A THING!"
