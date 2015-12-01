@@ -20,5 +20,6 @@ deployment:
       - slack -c namely-ui -m "Deployed styleguide to https://d1pol32eeyc3ek.cloudfront.net/`echo $CIRCLE_SHA1 | cut -c1-8`"
   staging:
     branch: f/icon-versioning
+    owner: keithpops
     commands:
       - slack -c namely-ui -m "I TESTED A THING!"
