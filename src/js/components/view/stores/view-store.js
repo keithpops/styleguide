@@ -15,7 +15,7 @@ class ViewStore {
         actions: [],
         visible: false,
         scroll: {
-          elem: document.body,
+          elem: null,
           enter: 500,
           exit: 250,
           height: 0,
@@ -42,23 +42,29 @@ class ViewStore {
       scroll,
     } = this.bars.action;
 
+    let scrollableElement = scroll.elem;
+
+    if (!scrollableElement) {
+      scrollableElement = document.body
+    }
+
     if (use) {
 
       if (bool) {
 
-        scroll.elem.addEventListener('scroll', ViewActions.scrolling);
+        scrollableElement.addEventListener('scroll', ViewActions.scrolling);
         window.addEventListener('resize', ViewActions.setDimensions);
         ViewActions.setDimensions.defer();
         ViewActions.scrolling.defer();
 
       } else {
 
-        scroll.elem.removeEventListener('scroll', ViewActions.scrolling);
+        scrollableElement.removeEventListener('scroll', ViewActions.scrolling);
         window.removeEventListener('resize', ViewActions.setDimensions);
       }
 
     } else {
-      scroll.elem.removeEventListener('scroll', ViewActions.scrolling);
+      scrollableElement.removeEventListener('scroll', ViewActions.scrolling);
     }
 
   }
