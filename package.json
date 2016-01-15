@@ -9,7 +9,7 @@
   "styles": "./dist/namely-ui.css",
   "scripts": {
     "postinstall": "cp -r ./src/js/components/ ./",
-    "start": "gulp",
+    "start": "gulp icons && gulp",
     "compile": "gulp icons && babel -d dist/ src/js/components/",
     "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
