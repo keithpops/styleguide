@@ -1,7 +1,7 @@
 import React from 'react';
 import Styleguide from '../styleguide';
 import PropsTable from '../style_guide_components/props-table';
-import Modal from '../components/modal/modal';
+import Modal from '../components/overlays/modal';
 
 export default React.createClass({
 

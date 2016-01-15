@@ -1,6 +1,6 @@
 import React from 'react';
 import Styleguide from '../styleguide';
-import Icon from '../components/icon';
+import Icon from '../components/misc/icon';
 import IconData from '../../lib/_icons';
 
 export default React.createClass({

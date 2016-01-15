@@ -1,7 +1,7 @@
 import React from 'react';
 import Styleguide from '../styleguide';
 import PropsTable from '../style_guide_components/props-table';
-import AccordionItem from '../components/accordion/accordion-item';
+import AccordionItem from '../components/misc/accordion-item';
 
 export default React.createClass({
 

@@ -8,14 +8,35 @@
   },
   "styles": "./dist/namely-ui.css",
   "scripts": {
-    "prepublish": "npm run compile",
+    "postinstall": "cp -r ./src/js/components/ ./",
     "start": "gulp",
     "compile": "gulp icons && babel -d dist/ src/js/components/"
+    "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
   "engine": {
     "node": ">=4.2.1"
   },
-  "author": "HipsterBrown",
+  "author": "Namely <dev@namely.com",
+  "contributors": [
+    {
+      "name": "Jason Fellows"
+    },
+    {
+      "name": "Katie Reed"
+    },
+    {
+      "name": "Keith Poplawski"
+    },
+    {
+      "name": "Nick Hehr"
+    },
+    {
+      "name": "Shelly Yip"
+    },
+    {
+      "name": "Tyler Sargent"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "alt": "^0.17.1",
@@ -31,6 +52,8 @@
     "babel": "^5.2.15",
     "babelify": "^6.0.2",
     "browserify": "^9.0.8",
+    "browserify-istanbul": "^0.2.1",
+    "chai": "^3.4.1",
     "commonjs-concat": "^1.0.3",
     "connect-history-api-fallback": "^1.1.0",
     "gulp": "^3.8.11",
@@ -45,7 +68,16 @@
     "gulp-scss-lint": "^0.2.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.4",
+    "jsdom": "^7.2.0",
+    "karma": "^0.13.15",
+    "karma-browserify": "^4.4.2",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jsdom-launcher": "^1.0.1",
+    "karma-mocha": "^0.2.1",
+    "karma-mocha-reporter": "^1.1.3",
     "local-links": "^1.3.0",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
     "vinyl-source-stream": "^1.1.0"
   }
 }

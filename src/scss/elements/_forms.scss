@@ -1,52 +1,28 @@
 input,
 select,
-textarea,
-.simple-select,
-fieldset {
+textarea {
+  -webkit-appearance: none;
   font-family: $sans-family;
   font-size: $h5;
   margin-bottom: 0;
   margin-top: 0;
+
+  &::placeholder {
+    color: $grey-50;
+  }
+
+  &:not([readonly]):focus::placeholder {
+    color: transparent;
+  }
 
   &:focus {
     outline: 0;
   }
 
   &.bc-orange {
-    border-color: $orange;
-  }
-}
-
-input::placeholder {
-  color: $grey-50;
-}
-
-input:not([readonly]):focus::placeholder {
-  color: transparent;
-}
-
-select {
-  -webkit-appearance: none;
-  border-radius: 3px;
-  height: $space-4;
-  min-width: 100%; // fill the container, preferably a col-* class
-  padding: $space-1;
-}
-
-select:not([multiple]) {
-  vertical-align: middle;
-}
-
-textarea {
-  border-radius: 3px;
-  box-sizing: border-box;
-  padding: $space-2;
-  vertical-align: middle;
-  width: 100%;
-
-  &:not([readonly]):focus,
-  &:not([readonly]):hover {
-    border: 1px solid $blue-25;
+    // scss-lint:disable ImportantRule
+    border-color: $orange !important;
+    // scss-lint:disable ImportantRule
   }
 }
 
@@ -56,6 +32,10 @@ label {
   display: inline-block;
   font-size: $h6;
   line-height: 1;
+}
+
+.disabled label {
+  cursor: default;
 }
 
 [type=text],
@@ -70,42 +50,128 @@ label {
 [type=time],
 [type=url],
 [type=week],
-.date-field input {
-  -webkit-appearance: none;
+.date-field input,
+textarea {
+  background: $blue-05;
   border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
   box-sizing: border-box;
   color: $grey-75;
-  padding: $space-1;
   vertical-align: middle;
   width: 100%;
 
-  &:focus:not([readonly]),
-  &:hover:not([readonly]) {
-    border: 1px solid $blue-25;
+  &.disabled,
+  &:disabled {
+    background: $grey-10;
+    color: $grey-50;
   }
 }
 
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
-  opacity: 0;
+[type=text],
+[type=datetime],
+[type=datetime-local],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week],
+textarea {
+  border-color: $blue-05;
+
+  &:focus:not([readonly]),
+  &:hover:not([readonly]) {
+    border-color: $blue-25;
+  }
+
+  &:disabled,
+  &.disabled {
+    border-color: $grey-10;
+
+    &:focus:not([readonly]),
+    &:hover:not([readonly]) {
+      border-color: $grey-10;
+    }
+  }
+}
+
+// Date field inputs are always read-only
+.date-field {
+
+  .icon-calendar {
+    color: $blue-50;
+  }
+
+  input {
+    border-color: $blue-05;
+
+    &:disabled {
+      border-color: $grey-10;
+    }
+  }
+
+  &:focus input,
+  &:hover input {
+    border-color: $blue-25;
+  }
+
+  &:focus .icon-calendar,
+  &:hover .icon-calendar {
+    color: $blue-70;
+  }
+
+  &:focus input:disabled,
+  &:hover input:disabled {
+    border-color: $grey-10;
+  }
+
+  &.disabled .icon-calendar {
+    color: $grey-50;
+  }
+}
+
+select,
+.simple-select {
+  background: $white;
+  border: 1px solid $grey-25;
+
+  &.bc-grey-50 {
+    border-color: $grey-50;
+  }
+
+  &.bc-orange {
+    border-color: $orange;
+  }
+
+  &.disabled,
+  &:disabled {
+    background: $grey-10;
+    border-color: $grey-10;
+  }
+
+  &.disabled:hover {
+    border-color: $grey-10;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: $grey-50;
+  }
 }
 
 [type=checkbox] {
-  -webkit-appearance: none;
   background: none;
+  border: 0;
   height: $space-3;
   position: relative;
   width: $space-3;
 
-  &:disabled:after {
-    cursor: default;
-  }
-
-  &[readonly]:after {
-    cursor: default;
-  }
-
   &:after {
+    border: 1px solid $grey-15;
     border-radius: 3px;
     color: $grey-50;
     content: '';
@@ -117,8 +183,27 @@ label {
     z-index: 1;
   }
 
+  &:disabled:after {
+    background: $grey-10;
+    border-color: $grey-10;
+    border-radius: 3px;
+    content: '';
+    cursor: default;
+  }
+
+  &[readonly]:after {
+    background: none;
+    border: 0;
+    cursor: default;
+  }
+
+  &:hover:after {
+    border-color: $grey-50;
+  }
+
   &:checked {
     @include icon(check);
+
     &:before {
       color: $grey-50;
       font-size: $h6;
@@ -137,32 +222,41 @@ label {
   }
 }
 
-[type=checkbox]:disabled:after {
-  border-radius: 3px;
-  content: '';
-  cursor: default;
-}
-
 [type=radio] {
   -webkit-appearance: none;
-  height: 16px;
+  background: none;
+  border: 0;
+  height: $space-3;
   padding: 0;
   position: relative;
-  width: 16px;
-
-  &:disabled:after {
-    cursor: default;
-  }
+  width: $space-3;
 
   &:after {
-    border-radius: 7px;
+    border: 1px solid $grey-15;
+    border-radius: 50%;
     color: $grey-50;
     content: '';
     cursor: pointer;
     display: block;
     height: 14px;
+    left: 3px;
     position: absolute;
+    top: 3px;
     width: 14px;
+  }
+
+  &:disabled:after {
+    background: $grey-10;
+    border-color: $grey-10;
+    cursor: default;
+  }
+
+  &:disabled:hover:after {
+    border-color: $grey-15;
+  }
+
+  &:hover:after {
+    border-color: $grey-50;
   }
 
   &:checked:before {
@@ -172,136 +266,290 @@ label {
     content: '';
     cursor: pointer;
     height: 8px;
-    left: 4px;
+    left: 7px;
     position: absolute;
-    top: 4px;
+    top: 7px;
     width: 8px;
     z-index: 1;
   }
-
 }
 
-.disabled label {
-  cursor: default;
-}
+fieldset {
+  background-color: $grey-10;
+  border: 0;
+  border-radius: 6px;
+  padding: $space-3;
 
-// fields on white background
-.field-light {
-  background: $blue-05;
-  border: 1px solid $blue-05;
-}
+  [type=text],
+  [type=datetime],
+  [type=datetime-local],
+  [type=email],
+  [type=month],
+  [type=number],
+  [type=password],
+  [type=search],
+  [type=tel],
+  [type=time],
+  [type=url],
+  [type=week],
+  .simple-select,
+  textarea {
+    background-color: $white;
+    border-color: $white;
 
-.field-light:disabled {
-  background: $grey-10;
-  border: 1px solid $grey-10;
+    &:focus:not([readonly]),
+    &:hover:not([readonly]) {
+      border-color: $grey-50;
+    }
 
-  &:hover {
-    border: 1px solid $grey-10;
+    &.disabled,
+    &:disabled {
+      background: $grey-15;
+      border-color: $grey-15;
+      color: $grey-50;
+    }
+
+    &:focus:not([readonly]):disabled,
+    &:hover:not([readonly]):disabled,
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]).disabled {
+      border-color: $grey-15;
+    }
+  }
+
+  .date-field {
+
+    input {
+      background-color: $white;
+    }
+
+    input:disabled {
+      background: $grey-15;
+      border-color: $grey-15;
+      color: $grey-50;
+    }
+
+    &:focus input,
+    &:hover input {
+      border-color: $grey-50;
+    }
+
+    &:focus input:disabled,
+    &:hover input:disabled {
+      border-color: $grey-15;
+    }
+
+    &.disabled .icon-calendar {
+      color: $grey-50;
+    }
+  }
+
+  [type=checkbox],
+  [type=radio] {
+
+    &:after {
+      background-color: $white;
+      border-color: $white;
+    }
+
+    &:disabled:after {
+      background-color: $grey-15;
+      border-color: $grey-15;
+    }
+
+    &:focus:not([readonly]):disabled:after,
+    &:hover:not([readonly]):disabled:after {
+      border-color: $grey-15;
+    }
+  }
+
+  hr {
+    border-color: $grey-25;
   }
 }
 
-.field-light[type=checkbox] {
-  background: none;
-  border: 0;
-}
+.modal,
+.tooltip {
 
-.field-light[type=checkbox]:after {
-  border: 1px solid $grey-15;
+  [type=text],
+  [type=datetime],
+  [type=datetime-local],
+  [type=email],
+  [type=month],
+  [type=number],
+  [type=password],
+  [type=search],
+  [type=tel],
+  [type=time],
+  [type=url],
+  [type=week],
+  textarea {
 
-  &:hover {
-    border: 1px solid $blue-25;
+    &:focus:not([readonly]),
+    &:hover:not([readonly]) {
+      border-color: $blue-50;
+    }
+
+    &.disabled,
+    &:disabled {
+      background-color: $grey-75;
+      border-color: $grey-75;
+      color: $grey-50;
+    }
+
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]):disabled,
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]):disabled {
+      border-color: $grey-75;
+    }
+  }
+
+  .simple-select {
+
+    &.disabled,
+    &:disabled {
+      background-color: $grey-75;
+      border-color: $grey-75;
+      color: $grey-50;
+    }
+
+    &.disabled:focus:not([readonly]),
+    &:disabled:hover:not([readonly]),
+    &:disabled:focus:not([readonly]),
+    &.disabled:hover:not([readonly]) {
+      border-color: $grey-75;
+    }
+
+    &:focus:not([readonly]),
+    &:hover:not([readonly]) {
+      border-color: $blue-50;
+    }
+  }
+
+  .date-field input {
+
+    &:focus,
+    &:hover {
+      border-color: $blue-50;
+    }
+
+    &.disabled,
+    &:disabled {
+      background: $grey-75;
+      border-color: $grey-75;
+      color: $grey-75;
+    }
+
+    &:focus.disabled,
+    &:hover:disabled,
+    &:focus.disabled,
+    &:hover:disabled {
+      border-color: $grey-75;
+    }
+  }
+
+  [type=checkbox],
+  [type=radio] {
+
+    &:after {
+      background-color: $white;
+      border-color: $grey-75;
+    }
+
+    &:focus:not([readonly]):after,
+    &:hover:not([readonly]):after {
+      border-color: $blue-50;
+    }
+
+    &[readonly]:after {
+      background-color: $blue-95;
+    }
+
+    &:disabled:after {
+      background-color: $grey-75;
+      border-color: $grey-75;
+    }
+
+    &:focus:not([readonly]):disabled:after,
+    &:hover:not([readonly]):disabled:after {
+      border-color: $grey-75;
+    }
+  }
+
+  hr {
+    border-color: $grey-75;
   }
 }
 
-.field-light[type=checkbox]:disabled:after {
-  background: $grey-10;
-  border: 1px solid $grey-10;
+// All inputs except checkbox, radio, select, and textarea
+[type=text],
+[type=datetime],
+[type=datetime-local],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week],
+.date-field input {
+  padding: $space-1;
 }
 
-.field-light[type=checkbox][readonly]:after {
-  background: none;
-  border: 0;
+textarea {
+  padding: $space-2;
 }
 
-.field-light[type=radio] {
-  background: none;
-  border: 0;
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  opacity: 0;
 }
 
-.field-light[type=radio]:after {
-  border: 1px solid $grey-15;
-}
+// Field icon colors
+.number-field,
+.select-field {
 
-.field-light[type=radio]:disabled:after {
-  background: $grey-10;
-  border: 1px solid $grey-10;
-}
-
-// fields on dark background (grey form)
-
-.field-dark {
-  background: $white;
-  border: 1px solid $white;
-
-  &:hover {
-    border: 1px solid $grey-50;
+  .icon-arrow-double,
+  .icon-arrow-down,
+  .icon-arrow-up {
+    color: $blue-50;
   }
-}
 
-.field-dark:disabled {
-  background: $grey-15;
-  border: 1px solid $grey-15;
+  &:focus:not([readonly]),
+  &:hover:not([readonly]) {
 
-  &:hover {
-    border: 1px solid $grey-15;
+    .icon-arrow-double,
+    .icon-arrow-down,
+    .icon-arrow-up {
+      color: $blue-70;
+    }
   }
-}
 
-.field-dark[type=checkbox] {
-  background: none;
-  border: 0;
-}
+  &.disabled,
+  &.disabled:focus,
+  &.disabled:hover {
 
-.field-dark[type=checkbox]:after {
-  background: $white;
-  border: 1px solid $white;
-}
-
-.field-dark[type=checkbox]:disabled:after {
-  background: $grey-15;
-  border: 1px solid $grey-15;
-}
-
-.field-dark[type=checkbox][readonly]:after {
-  background: none;
-  border: 0;
-}
-
-.field-dark[type=radio] {
-  background: none;
-  border: 0;
-}
-
-.field-dark[type=radio]:after {
-  background: $white;
-  border: 1px solid $white;
-}
-
-.field-dark[type=radio]:disabled:after {
-  background: $grey-15;
-  border: 1px solid $grey-15;
+    .icon-arrow-double,
+    .icon-arrow-down,
+    .icon-arrow-up {
+      color: $grey-50;
+    }
+  }
 }
 
 // note: there are some very pixel-specific styles here,
 // but I thought that might be ok since these are UI elements
 
 .number-field {
-  .icon {
+
+  .icon-arrow-double {
+    font-size: 14px;
     height: 0;
-    margin-left: -23px;
+    margin-left: -20px;
     pointer-events: none;
-    position: relative;
-    top: 3px;
     width: 0;
   }
 
@@ -314,9 +562,12 @@ label {
   }
 }
 
-.checkbox-field, .radio-field {
+.checkbox-field,
+.radio-field {
+  margin-right: $space-4;
 
-  &.read-only, &.inactive {
+  &.read-only,
+  &.inactive {
 
     label {
       cursor: default;
@@ -324,39 +575,13 @@ label {
   }
 
   .label-right {
-    margin-left: 10px;
+    margin-left: $space-2;
     position: relative;
+    top: -4px;
   }
 
   &.inactive input {
     background: none;
-  }
-}
-
-.checkbox-field .label-right {
-  top: -4px;
-}
-
-.radio-field .label-right {
-  top: -1px;
-}
-
-.simple-select {
-
-  &:hover {
-    border-color: $grey-50;
-  }
-
-  &.disabled:hover {
-    border-color: $grey-15;
-  }
-
-  &.bc-orange-hover:hover {
-    border-color: $orange;
-  }
-
-  .option:hover {
-    background-color: $grey-5;
   }
 }
 

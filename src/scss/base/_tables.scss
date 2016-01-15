@@ -41,9 +41,16 @@ td {
   vertical-align: top;
 }
 
-tbody tr td {
-  border-bottom: 1px solid $grey-5;
-  margin-bottom: 0rem;
+tbody tr {
+
+  &:hover {
+    background-color: $grey-5;
+  }
+
+  td {
+    border-bottom: 1px solid $grey-5;
+    margin-bottom: 0rem;
+  }
 }
 
 tbody tr:last-child td {

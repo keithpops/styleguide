@@ -20,6 +20,22 @@ To serve on a port other than 8080:
 $ gulp --port 8081
 ```
 
+Testing
+-------
+To run test suite once:
+```shell
+$ npm test
+```
+
+To keep test suite running and watching:
+```shell
+$ karma start
+```
+
+With Chrome as browser (recommended):
+```shell
+karma start --browsers Chrome
+```
 
 Packaging Files for Production
 ------------------------------

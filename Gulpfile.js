@@ -29,6 +29,7 @@ function string_src(filename, string) {
 gulp.task('scripts', function(){
   browserify({
     entries: './src/js/index.js',
+    extensions: ['.es6', '.js'],
     debug: true
   })
   .transform(babelify)
@@ -96,7 +97,7 @@ gulp.task('colors', function(){
 gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
-    port: gutil.env.port || 8080,
+    port: gutil.env.port || 8081,
     livereload: true,
     middleware: function() {
       return [
