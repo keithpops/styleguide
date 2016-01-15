@@ -16,6 +16,4 @@ public/app.css
 public/app.css.map
 public/app.js
 public/fonts/
-dist/namely-ui.css
-dump.rdb
 src/scss/base/_icons.scss

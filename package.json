@@ -10,7 +10,7 @@
   "scripts": {
     "postinstall": "cp -r ./src/js/components/ ./",
     "start": "gulp",
-    "compile": "gulp icons && babel -d dist/ src/js/components/"
+    "compile": "gulp icons && babel -d dist/ src/js/components/",
     "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
   "engine": {
